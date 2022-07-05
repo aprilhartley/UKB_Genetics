@@ -12,9 +12,9 @@
 
 module load apps/bgen/1.1.4
 
-bgen_pattern=/mnt/storage/private/mrcieu/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chrCHROM.bgen
+bgen_pattern=/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chrCHROM.bgen
 
-bgen_index_pattern=/mnt/storage/private/mrcieu/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chrCHROM.bgen.bgi
+bgen_index_pattern=/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chrCHROM.bgen.bgi
 
 snp_list=Locke_BMI_GWS_SNPs.txt
 temp_geno_prefix=temp_genos
