@@ -9,7 +9,7 @@
 #SBATCH --time=2-00:00:00
 
 module load apps/plink/2.00
-awk 'NR>16 {print $2}' "/mnt/storage/private/mrcieu/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/snp-stats/data.chr0template.snp-stats" >
+awk 'NR>16 {print $2}' "/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/snp-stats/data.chr0template.snp-stats" >
   chrtemplate_snps
 x=$(wc -l < "chrtemplate_snps")
 y=$(($x/50))
@@ -24,9 +24,9 @@ done
 
 for i in {1..50}; do
   plink2 \
-  --bgen /mnt/storage/private/mrcieu/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chr0template.bgen \
+  --bgen /data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chr0template.bgen \
   --id-delim ' ' \
-  --sample /mnt/storage/private/mrcieu/data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chr1-22.sample \
+  --sample /data/ukbiobank/genetic/variants/arrays/imputed/released/2018-09-18/data/dosage_bgen/data.chr1-22.sample \
   --make-bed --extract chrtemplate_snps_part${i} \
   --out ukb_chrtemplate_part${i}
 done
