@@ -14,3 +14,16 @@ code to convert plink .bgen files to Plink files required for GWASurvivR package
 for i in {1..9}; do cp convert_bgen_plink_template.sh convert_bgen_plink_chr${i}.sh; sed -i 's/template/{$i}/g'  convert_bgen_plink_chr${i}.sh;done
 for i in {10..22}; do cp convert_bgen_plink_template.sh convert_bgen_plink_chr${i}.sh; sed -i 's/0template/{$i}/g'  convert_bgen_plink_chr${i}.sh; sed -i 's/template/{$i}/g'  convert_bgen_plink_chr${i}.sh;done
 ```
+
+**gwasurvivr.R** <br>
+Script to run survival (cox proportional hazards) GWAS in R using the gwasurvivr package. Runs on Plink files in 50 chunks per chromosome. Need to fix memory errors for larger chromosomes. Output files can be combined using the code:
+
+```
+for i in {1..22} ; do
+cat OUTPUT_FILE_chr${i}_part*.txt.coxph > OUTPUT_FILE_chr${i}.coxph
+awk 'NR==1 || $1!="RSID" {print $0}'  OUTPUT_FILE_chr${i}.coxph > temp
+mv temp OUTPUT_FILE_chr${i}.coxph
+gzip OUTPUT_FILE_chr${i}.coxph
+rm OUTPUT_FILE_chr${i}_part*.txt.coxph
+done
+```
