@@ -9,5 +9,8 @@ Code for generating a BMI PRS based on genome-wide significant SNPs in UK Bioban
 
 **convert_bgen_plink_template.sh** <br>
 code to convert plink .bgen files to Plink files required for GWASurvivR package. Generates files in 50 chunks per chromosome (larger chunks generated file write failures). Runs much quicker than bcftools. Generate a script per chromosome using the code:
+
+```
 for i in {1..9}; do cp convert_bgen_plink_template.sh convert_bgen_plink_chr${i}.sh; sed -i 's/template/{$i}/g'  convert_bgen_plink_chr${i}.sh;done
 for i in {10..22}; do cp convert_bgen_plink_template.sh convert_bgen_plink_chr${i}.sh; sed -i 's/0template/{$i}/g'  convert_bgen_plink_chr${i}.sh; sed -i 's/template/{$i}/g'  convert_bgen_plink_chr${i}.sh;done
+```
