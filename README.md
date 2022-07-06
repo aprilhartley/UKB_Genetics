@@ -16,7 +16,7 @@ for i in {10..22}; do cp convert_bgen_plink_template.sh convert_bgen_plink_chr${
 ```
 
 **gwasurvivr.R** <br>
-Script to run survival (cox proportional hazards) GWAS in R using the gwasurvivr package. Runs on Plink files in 50 chunks per chromosome. Need to fix memory errors for larger chromosomes. Output files can be combined using the code:
+Script to run survival (cox proportional hazards) GWAS in R using the gwasurvivr package. Runs on Plink files in 50 chunks per chromosome. Need to specific maximum memory from the node in the bash script to ensure the job completes. Output files can be combined using the code:
 
 ```
 for i in {1..22} ; do
